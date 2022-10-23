@@ -1,11 +1,13 @@
 const express = require('express')
 const sqlite3 = require('sqlite3').verbose();
 const app = express()
+
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
 const { auth } = require('express-openid-connect');
 require('dotenv').config()
+const PORT = process.env.PORT || 3000
 
 const config = {
     authRequired: false,
@@ -220,4 +222,6 @@ function nova() {
         }); */
 }
 //nova()
-app.listen(3000)
+app.listen(PORT, () => {
+  console.log('Server listening on :' + PORT)
+})
