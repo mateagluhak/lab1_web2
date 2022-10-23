@@ -7,6 +7,7 @@ app.use(express.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
 const { auth } = require('express-openid-connect');
 require('dotenv').config()
+
 const PORT = process.env.PORT || 3000
 
 const config = {
@@ -222,6 +223,9 @@ function nova() {
         }); */
 }
 //nova()
+
+
+
 app.listen(PORT, () => {
   console.log('Server listening on :' + PORT)
 })
