@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/mojcss.css">
+    
+</head>
+<body>
+    <div class = "header">
+        <img class="logo" src="lopta.png">
+        <h1><a class="prvanljuniori" href="/">PRVA NL JUNIORI</a></h1>
+        <% if(!isAuthenticated) { %>
+            <a class="prijava" href="/login/">Login</a>
+            <% }else {%> 
+            <dev class="pozdrav">Pozdrav <%- user['email'] %> ! </dev>
+            <a class="prijava" href="/logout/">Logout</a>
+            <% } %> 
+       <!--<button>REGISTRACIJA</button>--> 
+    </div>
+    
+    
+    <div class="komentari">
+
+        <div class="tablica-kom">
+           <div style="font-weight: bold; font-size:larger; font-family: Arial;">KOMENTARI:</div>
+           <table class="kom">
+            <tr>
+                <th>Vrijeme objave:</th>
+                <th>Korisnik:</th>
+                <th></th>
+                
+              </tr>
+
+              <%rows.forEach((row) => {%>
+                    
+                <tr>
+                    <td><%= row['vrijeme'] %> </td>
+                    <td><%= row['mail'] %></td>
+                    <td style="word-break:break-all; max-width: 300px;"><%= row['komentar'] %></td>
+                    <% if(isAuthenticated && user['email']== 'adminlabos1@admin.com') { %>
+                        <td>
+                        <button class="delete-btn" onclick='window.location.assign("/delete/<%= row.id %>")'>Obriši</button>
+                        </td> 
+                        <% }%>
+                        <% if(isAuthenticated && user['email']== row.mail && user['email']!= 'adminlabos1@admin.com') { %>
+                            <td>
+                            <button class="delete-btn" onclick='window.location.assign("/delete/<%= row.id %>")'>Obriši</button>
+                            </td> 
+                            <% }%>  
+                </tr>
+              
+            <%});%>
+                
+             
+        </table>
+        </div>
+        
+        <div class="unesi-kom">
+            <div>Unesite komentar: </div>
+            <form method="POST">
+                    <textarea class="kom-input" rows="7" cols="50" name="kom_value" required></textarea>
+                    <button type="submit">Submit</button>
+            </form>
+            
+            
+        </div>
+        
+        
+    </div>
+    
+    <script src="server.js"></script>
+</body>

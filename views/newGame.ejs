@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/mojcss.css">
+</head>
+<body>
+    <div class = "header">
+        <img class="logo" src="/lopta.png">
+        <h1><a class="prvanljuniori" href="/">PRVA NL JUNIORI</a></h1>
+        <% if(!isAuthenticated) { %>
+            <a class="prijava" href="/login/">Login</a>
+            <% }else {%> 
+            <dev class="pozdrav">Pozdrav <%- user['email'] %> ! </dev>
+            <a class="prijava" href="/logout/">Logout</a>
+            <% } %> 
+       <!--<button>REGISTRACIJA</button>--> 
+    </div>
+    <div class="dodaj-container">
+        <div class="naslovD">Dodajte novu utakmicu: </div>
+
+    <form  method="POST"> 
+        <div class="form-container">
+            <label"> ID utakmice:
+            <input required type="number" name="id" value="<%= locals.id %> ">
+            </label>
+        </div>
+        <div class="form-container">
+            <label> Ime prvog tima:
+                <input required type="text" name="team1_name" value="<%= locals.team1_name %> ">
+            </label>
+        </div>
+        <div class="form-container">
+            <label> Bodovi prvog tima:
+                <input required min="0" type="number" name="team1_score" value="<%= locals.team1_score %> ">
+            </label>
+        </div>
+        <div class="form-container">
+            <label> Ime drugog tima:
+                <input required type="text" name="team2_name" value="<%= locals.team2_name %> ">
+            </label>
+        </div>
+        <div class="form-container">
+            <label> Bodovi drugog tima:
+                <input required min="0" type="number" name="team2_score" value="<%= locals.team2_score %> ">
+            </label>
+        </div>
+       
+    
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    
+</body>

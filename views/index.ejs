@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/mojcss.css">
+    
+</head>
+<body>
+    <div class = "header">
+        <img class="logo" src="lopta.png">
+        <h1><a class="prvanljuniori" href="/">PRVA NL JUNIORI</a></h1>
+        <% if(!isAuthenticated) { %>
+            <a class="prijava" href="/login/">Login</a>
+            <% }else {%> 
+            <dev class="pozdrav">Pozdrav <%- user['email'] %> ! </dev>
+            <a class="prijava" href="/logout/">Logout</a>
+            <% } %> 
+       <!--<button>REGISTRACIJA</button>--> 
+    </div>
+    <div class="vc">
+   <!--<button class="ljestvica-btn" onclick='window.location.assign("ljestvica")'>Ljestvica</button>--> 
+    <div class="tablica">
+        <div class="container-naslov">
+            <div class="naslov">1. KOLO</div>
+            <button onclick='window.location.assign("/raspored")'>Raspored utakmica</button>
+            <% if(isAuthenticated && user['email']== 'adminlabos1@admin.com') { %>
+                <button onclick='window.location.assign("addNewGame")'>Dodaj utakmicu</button>
+                <% } %>
+            
+                <% if(isAuthenticated) { %>
+                    <button class="komentar-btn" onclick='window.location.assign("comments")'>Komentari</button>
+                    <% }%> 
+            
+        </div>
+        
+        <table class="tablica1">
+            <tr>
+                <th>Klub1</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Bodovi2</th>
+                <% if(isAuthenticated && user['email']== 'adminlabos1@admin.com') { %>
+                    <th></th>
+                    <% }%> 
+              </tr>
+                <%rows.forEach((row) => {%>
+                    
+                    <tr>
+                       
+                        <td><%= row['team1_name'] %> </td>
+                        <td><%= row['team1_score'] %></td>
+                        <td>:</td>
+                        <td><%= row['team2_score'] %></td>
+                        <td><%= row['team2_name'] %></td>
+                       
+                        <% if(isAuthenticated && user['email']== 'adminlabos1@admin.com') { %>
+                            <td>
+                            <button class="edit-btn" onclick='window.location.assign("/edit/<%= row.id %>")'>Uredi</button>
+                            </td> 
+                            <% }%> 
+                            
+        
+                        
+                    </tr>
+                  
+                <%});%>
+             
+        </table>
+
+    </div>
+    <div class="ljestvica">
+        
+        <div class="container-naslov">
+            
+            <div class="naslov-l">LJESTVICA</div>
+        </div>
+        <table class="ljestvica-table">
+            
+            <tr>
+                <th>Klub</th>
+                <th>Bodovi</th>
+            </tr>
+            <%rows_l.forEach((row) => {%>
+                    
+                <tr>
+                    <td id="idd"><%= row['team_name'] %> </td>
+                    <td id="team1"><%= row['suma'] %></td>
+                </tr>
+              
+            <%});%>
+        </table>
+        
+    </div>
+</div>
+        
+     
+
+    <script src="server.js"></script>
+</body>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/mojcss.css">
+    
+</head>
+<body>
+    <div class = "header">
+        <img class="logo" src="lopta.png">
+        <h1><a class="prvanljuniori" href="/">PRVA NL JUNIORI</a></h1>
+        <% if(!isAuthenticated) { %>
+            <a class="prijava" href="/login/">Login</a>
+            <% }else {%> 
+            <dev class="pozdrav">Pozdrav <%- user['email'] %> ! </dev>
+            <a class="prijava" href="/logout/">Logout</a>
+            <% } %> 
+       <!--<button>REGISTRACIJA</button>--> 
+    </div>
+    
+    <div class="raspored">
+        <table>
+            <th>Vrijeme održavanja: </th>
+            <th>Mjesto održavanja: </th>
+            <th></th>
+            <tr>
+                <td>29.09.2022.</td>
+                <td>Stadion Maksimir, Zagreb</td>
+                <td>Dinamo - Hajduk</td>
+            </tr>
+            <tr>
+                <td>06.10.2022.</td>
+                <td>Stadion u Retfali, Osijek</td>
+                <td>Hajduk - Osijek</td>
+            </tr>
+            <tr>
+                <td>11.10.2022.</td>
+                <td>Stadion Maksimir, Zagreb</td>
+                <td>Šibenik - Dinamo</td>
+            </tr>
+            <tr>
+                <td>19.10.2022.</td>
+                <td>Šubićevac, Šibenik</td>
+                <td>Šibenik - Cibalia</td>
+            </tr>
+            <tr>
+                <td>23.10.2022.</td>
+                <td>Šubićevac, Šibenik</td>
+                <td>Dinamo - Šibenik</td>
+            </tr>
+            <tr>
+                <td>29.10.2022.</td>
+                <td>Kajzerica, Zagreb</td>
+                <td>Lokomotiva - Gorica</td>
+            </tr>
+            <tr>
+                <td>09.11.2022.</td>
+                <td>Stadion u Retfali, Osijek</td>
+                <td>Osijek - Cibalia</td>
+            </tr>
+            <tr>
+                <td>19.11.2022.</td>
+                <td>Stadion u Retfali, Osijek</td>
+                <td>Osijek - Sesvete</td>
+            </tr>
+            
+        </table>
+    </div>
+   
+    
+    <script src="server.js"></script>
+</body>

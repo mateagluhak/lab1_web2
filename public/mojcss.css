@@ -1,0 +1,252 @@
+
+form {
+    margin-bottom: 20px;
+}
+
+.tablica1 {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+
+}
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    
+
+    
+  }
+ .container-naslov {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 3px;
+  margin-top: 20px;
+ }
+  .tablica {
+    height: 50%;
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    min-width:500px;
+    
+    
+    
+    
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .naslov {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    flex: 1;
+  }
+  form {
+    display: block;
+  }
+ .form-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    
+ }
+ .dodaj-container {
+  display: flex;
+  justify-content: left;
+  margin-top: 100px;
+  
+ }
+ .naslovD {
+  
+  font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 300px;
+ }
+ .izmjena-btn {
+  display: inline;
+ }
+
+.ljestvica-table{
+  
+  border-collapse: collapse;
+  
+}
+.ljestvica-table{
+ 
+  margin-left: 100px;
+  margin-right: 20px;
+}
+.header {
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(59, 189, 91);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(222, 222, 222);
+  align-items: center;
+  min-width:500px;
+ 
+  
+}
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  padding-left: 10px;
+  flex:2;
+}
+
+body {
+  padding-left: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+  margin-left: 50px;
+
+}
+
+.header button {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+button {
+  background-color: rgb(38, 110, 19);
+  color: white;
+  border: none;
+  /*height: 36px;
+  width: 105px;*/
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 10px; /*razmak s desna*/
+  margin-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  vertical-align: top;
+ } 
+ 
+
+.vc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  
+}
+.ljestvica {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  
+  
+  
+}
+
+.naslov-l {
+  margin-left: 60px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.prijava{
+  margin-right: 30px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pozdrav {
+  margin-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.komentari {
+  
+  margin-top: 80px;
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  
+}
+.tablica-kom {
+
+width: 60%;
+height: 100%;
+min-width:500px;
+margin-right: 10px;
+
+
+}
+.unesi-kom {
+
+width: 40%;
+height: 100%;
+padding-left: 30px;
+padding-top: 10px;
+margin-left: 20px;
+margin-bottom: 20px;
+
+
+
+}
+.kom {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+.kom-input {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  
+  
+}
+
+
+.prvanljuniori {
+  color: white;
+}
+a:visited {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: rgb(81, 33, 125);
+}
+
+.raspored {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-c {
+  margin-top: 100px;
+  margin-left: 30%;
+  justify-content: center;
+  flex-direction: row;
+}
