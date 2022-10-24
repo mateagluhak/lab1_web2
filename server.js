@@ -1,3 +1,7 @@
+const https = require('https');
+const fs = require('fs');
+
+
 const express = require('express')
 const sqlite3 = require('sqlite3').verbose();
 const app = express()
@@ -8,13 +12,17 @@ app.set('view engine', 'ejs')
 const { auth } = require('express-openid-connect');
 require('dotenv').config()
 
-const PORT = process.env.PORT || 3000
+const externalUrl = process.env.RENDER_EXTERNAL_URL;
+const port = externalUrl && process.env.PORT ? parseInt(process.env.PORT) : 3000;
+
+
+//const PORT = process.env.PORT || 3000
 
 const config = {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.SECRET,
-    baseURL: process.env.BASEURL,
+    baseURL: externalUrl || `http://localhost:${port}`,
     clientID: process.env.CLIENTID,
     issuerBaseURL: process.env.ISSUER
   };
@@ -224,8 +232,19 @@ function nova() {
 }
 //nova()
 
+if (externalUrl) {
+  const hostname = '127.0.0.1';
+  app.listen(port, hostname, () => {
+  console.log(`Server locally running at http://${hostname}:${port}/ and from
+  outside on ${externalUrl}`);
+  });
+  }else {
+    app.listen(3000, () => {
+      console.log('Server listening on : 3000')
+    })
+    }
+    
 
-
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
   console.log('Server listening on :' + PORT)
-})
+}) */
