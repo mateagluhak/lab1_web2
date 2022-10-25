@@ -15,60 +15,64 @@
             <% } %> 
        <!--<button>REGISTRACIJA</button>--> 
     </div>
-    <div class="edit-c">
-        <div>Uredite rezultat sljedeće utakmice:</div>
+    <% if (isAuthenticated && user['email']== 'adminlabos1@admin.com') {%> 
+        <div class="edit-c">
+            <div>Uredite rezultat sljedeće utakmice:</div>
+            
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Klub1</th>
+                    <th>Bodovi1</th>
+                    <th>Klub2</th>
+                    <th>Bodovi2</th>
+                </tr>
+                
+                        <form method="POST"></form>
+                        <tr>
+                            <td id="idd"><%= row['id'] %> </td>
+                            <td id="team1"><%= row['team1_name'] %></td>
+                            <td id="team1score"><%= row['team1_score'] %></td>
+                            <td id="team2"><%= row['team2_name'] %></td>
+                            <td id="team2score"><%= row['team2_score'] %></td>
+                        
+                        </tr>
+                    
+                
+                
+            </table>
         
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Klub1</th>
-                <th>Bodovi1</th>
-                <th>Klub2</th>
-                <th>Bodovi2</th>
-              </tr>
-               
-                    <form method="POST"></form>
-                    <tr>
-                        <td id="idd"><%= row['id'] %> </td>
-                        <td id="team1"><%= row['team1_name'] %></td>
-                        <td id="team1score"><%= row['team1_score'] %></td>
-                        <td id="team2"><%= row['team2_name'] %></td>
-                        <td id="team2score"><%= row['team2_score'] %></td>
-                       
-                    </tr>
-                  
-               
-             
-        </table>
-    
-    <form  method="POST"> 
-      
-        <div class="form-container">
-            <label> Ime prvog tima:
-                <input readonly type="text" name="team1_name" value="<%= row['team1_name'] %> ">
-            </label>
+        <form  method="POST"> 
+        
+            <div class="form-container">
+                <label> Ime prvog tima:
+                    <input readonly type="text" name="team1_name" value="<%= row['team1_name'] %> ">
+                </label>
+            </div>
+            <div class="form-container">
+                <label> Bodovi prvog tima:
+                    <input required min="0" type="number" name="team1_score" value="<%= locals.team1_score %> ">
+                </label>
+            </div>
+            <div class="form-container">
+                <label> Ime drugog tima:
+                    <input readonly type="text" name="team2_name" value="<%= row['team2_name'] %> ">
+                </label>
+            </div>
+            <div class="form-container">
+                <label> Bodovi drugog tima:
+                    <input required min="0" type="number" name="team2_score" value="<%= locals.team2_score %> ">
+                </label>
+            </div>
+        
+        
+            <button type="submit">Submit</button>
+        </form>
+        
         </div>
-        <div class="form-container">
-            <label> Bodovi prvog tima:
-                <input required min="0" type="number" name="team1_score" value="<%= locals.team1_score %> ">
-            </label>
-        </div>
-        <div class="form-container">
-            <label> Ime drugog tima:
-                <input readonly type="text" name="team2_name" value="<%= row['team2_name'] %> ">
-            </label>
-        </div>
-        <div class="form-container">
-            <label> Bodovi drugog tima:
-                <input required min="0" type="number" name="team2_score" value="<%= locals.team2_score %> ">
-            </label>
-        </div>
-       
-    
-        <button type="submit">Submit</button>
-    </form>
-    
-    </div>
+    <% }else{%> 
+            <div style="margin-top: 100px; font-size: large;font-family: Arial, Helvetica, sans-serif;">Nemate pristup ovoj stranici!</div>
+            <% }%> 
    
   
     <script src="server.js"></script>
